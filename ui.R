@@ -181,7 +181,7 @@ shinyUI(fluidPage(navbarPage(title =div(tags$a(img(src="Logo.png", height=40,wid
                                     tabPanel("Interp. Kriging",
                                              withSpinner(plotOutput("OKPlot"))
                                              ),
-                                    tabPanel("CorrelaciÃ³n ",
+                                    tabPanel("Correlación ",
                                              withSpinner(plotOutput("SpaCorPlot"))
                                              ),
                                     tabPanel("BoxPlot ", 
