@@ -1,3 +1,3 @@
 FROM virtualstaticvoid/heroku-docker-r:shiny
 
-CMD ["/usr/bin/R", "--no-save", "--gui-none", "-f", "/app/global.R"]
+CMD ["/usr/bin/R", "--no-save", "-f", "/app/global.R"]
