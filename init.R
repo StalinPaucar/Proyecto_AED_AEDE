@@ -7,10 +7,11 @@
 #helpers.installPackages("gridExtra")
 #helpers.installPackages("ggpubr")
 
-my_packages = c("shiny","shinyWidgets", "shinythemes", "shinycssloaders", "openxlsx", "lubridate", 
-                "openair", "stringi", "maptools", "modeest", "moments", "hms", "ggplot2", "ggseas", 
-                "viridis", "shadowtext", "plotly",
-                "Metrics", "nortest","tidyverse")
+my_packages = c("shiny","shinyWidgets", "shinythemes", "shinycssloaders",
+                "openxlsx", "lubridate", "tidyverse", "openair", "stringi",
+                "maptools", "modeest", "moments", "hms", "ggplot2", "ggseas", 
+                "viridis", "shadowtext", "plotly","ggpubr",
+                "Metrics", "nortest")
 
 install_if_missing = function(p) {
   if (p %in% rownames(installed.packages()) == FALSE) {
