@@ -1,16 +1,20 @@
-.PHONY: all build run
-
 # default build target
 all::
 
+.PHONY: all
 all:: build
 
-APP:=$(shell basename $(PWD))
-
+.PHONY: build
 build:
 
-	docker build --tag heroku-docker-r-example:$(APP) .
+	docker build --tag heroku-docker-r-example:shiny .
 
+.PHONY: run
 run:
 
-	docker run -it --rm heroku-docker-r-example:$(APP)
+	docker run -it -p "8080:8080" heroku-docker-r-example:shiny
+
+.PHONY: test
+test:
+
+	@curl -v "localhost:8080"
