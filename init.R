@@ -7,7 +7,7 @@ helpers.installPackages("gstat")
 
 my_packages = c("shiny","shinyWidgets", "shinythemes", "shinycssloaders", "openxlsx", "lubridate", 
                 "openair", "stringi", "maptools", "modeest", "moments", "hms", "ggplot2", "ggseas", 
-                "viridis", "shadowtext", "plotly", "leaflet", "ggpubr", "gridExtra",
+                "viridis", "shadowtext", "plotly", "ggpubr", "gridExtra",
                 "Metrics", "nortest","tidyverse")
 
 install_if_missing = function(p) {
