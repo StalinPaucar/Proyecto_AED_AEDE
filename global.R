@@ -257,13 +257,13 @@ proj4string(sptdf) <- utm
 #sptdf$Y <- pcd[,"Y"]
 
 #||||||||||||||||||||||||||cargar mapas base de las provincia Ecuador|||||||||||||||||||||
-provincias<-readOGR("data/Mapas Provincias Ecuador SHP","nxprovincias")
-cantones<-readOGR("data/Mapas Provincias Ecuador SHP","nxcantones")
+#provincias<-readOGR("data/Mapas Provincias Ecuador SHP","nxprovincias")
+#cantones<-readOGR("data/Mapas Provincias Ecuador SHP","nxcantones")
 parroquias<-readOGR("data/Mapas Provincias Ecuador SHP","nxparroquias") 
 
 # Filtrar dtos de los mapas para la provincia Chimborazo
-prov_chimb <- subset(provincias, DPA_DESPRO=='CHIMBORAZO')
-cant_chimb <- subset(cantones, DPA_DESPRO=='CHIMBORAZO')
+#prov_chimb <- subset(provincias, DPA_DESPRO=='CHIMBORAZO')
+#cant_chimb <- subset(cantones, DPA_DESPRO=='CHIMBORAZO')
 parro_chimb <- subset(parroquias, DPA_DESPRO=='CHIMBORAZO')
 
 #complemeto adicional para graficar en ggplot debido a que en el server shinyappsio
