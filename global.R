@@ -8,7 +8,7 @@ library(lubridate)
 library(tidyverse)
 library(openair)
 library(stringi)#remover acentos
-library(maptools)
+#library(maptools)
 library(modeest)
 library(moments)
 library(hms)
