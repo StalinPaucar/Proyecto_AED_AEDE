@@ -14,10 +14,10 @@ shinyServer(function(input, output) {
     })
     observeEvent(input$ayuda1, {
       showModal(modalDialog(
-        title = "Análisis Exploratorio de Datos (AED)",
-        p(column(6, p("Seleccione la variable de interés y la/s estación/es para mostrar sus resultados gráficos."),
-                 p("Cada una de las variables están registradas por hora y las puede filtrar según el intervalo de tiempo que requiera."),
-                 p("Use la opción 'Promediar Datos' para reordenar las series de tiempo y filtrar los datos por día, mes, trimestre o años."),
+        title = "Analisis Exploratorio de Datos (AED)",
+        p(column(6, p("Seleccione la variable de interes y la/s estacion/es para mostrar sus resultados graficos."),
+                 p("Cada una de las variables estan registradas por hora y las puede filtrar segun el intervalo de tiempo que requiera."),
+                 p("Use la opcion 'Promediar Datos' para reordenar las series de tiempo y filtrar los datos por dia, mes, trimestre o años."),
                  p("Recuerde que para promediar los datos debe aumentar el intervalo de tiempo para poder tener resultados correctos")),
           column(6, img(src="help1.JPG"),
                  br(), br(),
@@ -28,12 +28,12 @@ shinyServer(function(input, output) {
     })
     observeEvent(input$ayuda2, {
       showModal(modalDialog(
-        title = "Análisis Exploratorio de Datos Espaciales (AEDE)",
-        p(column(6, p("Seleccione la variable de interés y la/s estación/es para mostrar sus resultados gráficos."),
-                 p("Cada una de las variables están registradas por hora y las puede filtrar según el intervalo de tiempo que requiera."),
-                 p("Esta sección cuenta con tres métodos de interpolación, importantes para dar una aproximación de los posibles valores
-                    en lugares donde aún no se ha recolectado datos de las respectivas variables."),
-                 p("Para el método de interpolación Kriging se puede seleccionar tipo de modelo con el que se desea trabajar por defecto tiene ajuste automético")),
+        title = "Analisis Exploratorio de Datos Espaciales (AEDE)",
+        p(column(6, p("Seleccione la variable de interes y la/s estacion/es para mostrar sus resultados graficos."),
+                 p("Cada una de las variables estan registradas por hora y las puede filtrar segun el intervalo de tiempo que requiera."),
+                 p("Esta seccion cuenta con tres metodos de interpolacion, importantes para dar una aproximacion de los posibles valores
+                    en lugares donde aun no se ha recolectado datos de las respectivas variables."),
+                 p("Para el metodo de interpolacion Kriging se puede seleccionar tipo de modelo con el que se desea trabajar por defecto tiene ajuste autometico")),
           column(6, img(src="help1.JPG"),
                  br(), br(),
                  img(src="help3.JPG"),
@@ -685,7 +685,7 @@ shinyServer(function(input, output) {
       dbbp <- point_names()
       scpts <- seq(min(dbbp$varprom), max(dbbp$varprom), length.out = 5)
       scpts <- as.numeric(round(scpts,2))
-      titulo <- "PROVINCIA DE CHIMBORAZO\nUBICACIÓN DE ESTACIONES"
+      titulo <- "PROVINCIA DE CHIMBORAZO\nUBICACION DE ESTACIONES"
       ag1 <- "Predicciones de\n"
       input <- input$var_sel2
       ag2 <- "\n(en "
@@ -886,7 +886,7 @@ shinyServer(function(input, output) {
         sptdf <- sptdfMean()
         # variograma inicial
         #modsel <- as.character(vgm()[c(2:15,17:19),1])
-        if (input$mod_sel1=="Automático") {
+        if (input$mod_sel1=="Automatico") {
           modsel <- as.character(vgm()[c(2:4,6,9),1])
         }else{
           modsel <- input$mod_sel1
@@ -1166,15 +1166,15 @@ shinyServer(function(input, output) {
       obs <- data.frame(Thiessen=cv.th$observed, IDW=cv.idw$observed,Kriging=cv.ok$observed)
       
       df1 <- obs [,1:3] %>%
-        gather(key = "Método", value = Observado)
+        gather(key = "Metodo", value = Observado)
       df2 <- pred[,1:3] %>%
-        gather(key = "Método", value = Estimado)
+        gather(key = "Metodo", value = Estimado)
       df <- bind_cols(df1,df2[2])
    
       ggplot(df, aes(x = Observado, y = Estimado)) + 
         geom_point() + 
-        ggtitle(paste0("Dispersión Observados vs Estimados\n",input$var_sel2))+
-        facet_wrap(~ Método, scales="free",ncol = 4)+
+        ggtitle(paste0("Dispersion Observados vs Estimados\n",input$var_sel2))+
+        facet_wrap(~ Metodo, scales="free",ncol = 4)+
         theme_minimal()+
         theme(text = element_text(size=16),
               axis.text.x = element_text(size=rel(1.3)),
@@ -1197,12 +1197,12 @@ shinyServer(function(input, output) {
       cv.ok <- cv_ok()
       datafil <- data.frame(Thiessen=cv.th$residual, IDW=cv.idw$residual,Kriging=cv.ok$residual)
       df <- datafil[,1:3] %>%
-        gather(key = "Método", value = Residuos)
+        gather(key = "Metodo", value = Residuos)
       
-      ggplot(df, aes(x = Método, y = Residuos)) + 
+      ggplot(df, aes(x = Metodo, y = Residuos)) + 
         geom_boxplot() +
-        facet_wrap(~ Método, scales="free",ncol = 4)+
-        ylab(input$var_sel2) + xlab("Distribución de los Residuos")+
+        facet_wrap(~ Metodo, scales="free",ncol = 4)+
+        ylab(input$var_sel2) + xlab("Distribucion de los Residuos")+
         theme_minimal()+
         theme(text = element_text(size=16),
               axis.text.x = element_text(size=rel(1.3)),

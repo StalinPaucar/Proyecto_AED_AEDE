@@ -19,7 +19,7 @@ shinyUI(fluidPage(navbarPage(title =div(tags$a(img(src="Logo.png", height=40,wid
                             ),
                             sidebarPanel(
                                 tags$style(".well {background-color:#4682B4;}"),
-                                p("NAVEGACIÓN"),
+                                p("NAVEGACION"),
                                 actionButton("ayuda1",label="Ayuda", icon= icon('question-circle'), class ="down"),
                                 #helpText("Cargar una base de datos de acuerdo
                                 #al formato estandar: https://example.com"),
@@ -35,7 +35,7 @@ shinyUI(fluidPage(navbarPage(title =div(tags$a(img(src="Logo.png", height=40,wid
                                                end = "2019-01-07",weekstart = 1,
                                                min = "2014-01-01", max = "2019-12-31",
                                                startview = 'year', language = 'es'),
-                                helpText("Intervalo de horas por día"),
+                                helpText("Intervalo de horas por dia"),
                                 sliderInput("hora1", "Horas", min = 0, 
                                             max = 23, value = c(0, 23)),
                                 checkboxInput("act_avg", label = "Promediar Serie", value = FALSE),
@@ -43,7 +43,7 @@ shinyUI(fluidPage(navbarPage(title =div(tags$a(img(src="Logo.png", height=40,wid
                                   condition = "input.act_avg==1",
                                   #h4("Opciones Graficas"),
                                   radioButtons("timeavg", label = "Promedio por",
-                                               choices = c("día" = "day", "Semana" = "week", "Mes" = "month",
+                                               choices = c("dia" = "day", "Semana" = "week", "Mes" = "month",
                                                            "Trimestre" = "quarter", "Año" = "year")),
                                   helpText("Aumente el intervalo de Fechas"),
                                 ),
@@ -100,7 +100,7 @@ shinyUI(fluidPage(navbarPage(title =div(tags$a(img(src="Logo.png", height=40,wid
                    tabPanel("AEDE", icon = icon("globe"), 
                             sidebarPanel(
                                 br(),
-                                p("NAVEGACIÓN"),
+                                p("NAVEGACION"),
                                 actionButton("ayuda2",label="Ayuda", icon= icon('question-circle'), class ="down"),
                                 #helpText("Cargar una base de datos de acuerdo
                                 #al formato estandar: https://example.com"),
@@ -119,7 +119,7 @@ shinyUI(fluidPage(navbarPage(title =div(tags$a(img(src="Logo.png", height=40,wid
                                                min = "2014-01-01", max = "2019-12-31",
                                                startview = 'year', language = 'es'),
                                 br(),
-                                helpText("Filtro de horas por día"),
+                                helpText("Filtro de horas por dia"),
                                 sliderInput("hora2", "Horas", min = 0, 
                                             max = 23, value = c(0, 23)),
                                 #selectInput("colors", "Paleta de Colores",
@@ -130,8 +130,8 @@ shinyUI(fluidPage(navbarPage(title =div(tags$a(img(src="Logo.png", height=40,wid
                                   condition = "input.tabsAEDE=='Variograma' || input.tabsAEDE=='Interp. Kriging'",
                                   #h4("Opciones Graficas"),
                                   selectInput("mod_sel1","Modelo:",
-                                              c("Automático",as.character(vgm()[c(2:4,6,9),1])),#agregar lo mismo en variograma
-                                              selected = "Automático")
+                                              c("Automatico",as.character(vgm()[c(2:4,6,9),1])),#agregar lo mismo en variograma
+                                              selected = "Automatico")
                                 ),
                                
                             ),
@@ -181,7 +181,7 @@ shinyUI(fluidPage(navbarPage(title =div(tags$a(img(src="Logo.png", height=40,wid
                                     tabPanel("Interp. Kriging",
                                              withSpinner(plotOutput("OKPlot"))
                                              ),
-                                    tabPanel("Correlación ",
+                                    tabPanel("Correlacion ",
                                              withSpinner(plotOutput("SpaCorPlot"))
                                              ),
                                     tabPanel("BoxPlot ", 
@@ -205,34 +205,34 @@ shinyUI(fluidPage(navbarPage(title =div(tags$a(img(src="Logo.png", height=40,wid
                             #)
                             #)
                    ),
-                   tabPanel("INFORMACIÓN",icon = icon("info-circle"),
+                   tabPanel("INFORMACION",icon = icon("info-circle"),
                             #<div style="text-align: justify">
-                            p("Los datos de cada variable usados en esta aplicación corresponden a series de tiempo promediadas por hora."),
-                            p("Se cuenta con información registrada desde 01/01/2014 hasta 01/01/2019."),
-                            p("A la base de datos se le ha aplicado previamente técnicas de relleno de datos faltantes usando el paquete R climatol."),
+                            p("Los datos de cada variable usados en esta aplicacion corresponden a series de tiempo promediadas por hora."),
+                            p("Se cuenta con informacion registrada desde 01/01/2014 hasta 01/01/2019."),
+                            p("A la base de datos se le ha aplicado previamente tecnicas de relleno de datos faltantes usando el paquete R climatol."),
                             strong("Variables"),
-                            p("Se cuenta con datos de 7 variables meteorológicas: Temperatura Ambiental, Humedad Relativa, Radiación Solar Difusa, 
-                              Radiación Solar Global, Temperatura de Suelo a nivel 1, Dirección del Viento y Velocidad del viento."),
+                            p("Se cuenta con datos de 7 variables meteorologicas: Temperatura Ambiental, Humedad Relativa, Radiacion Solar Difusa, 
+                              Radiacion Solar Global, Temperatura de Suelo a nivel 1, Direccion del Viento y Velocidad del viento."),
                             strong("Estaciones"),
-                            p("Los datos registrados son de 11 estaciones meteorológicas ubicadas en la provincia de Chimborazo que miden todas 
-                              las variables anteriores en cada estación. 
-                              Las estaciones son: Alao, Atillo, Cumandá, Espoch, Matus, Multitud, Quimiag, San Juan, Tixán, Tunshi y Urbina."),
+                            p("Los datos registrados son de 11 estaciones meteorologicas ubicadas en la provincia de Chimborazo que miden todas 
+                              las variables anteriores en cada estacion. 
+                              Las estaciones son: Alao, Atillo, Cumanda, Espoch, Matus, Multitud, Quimiag, San Juan, Tixan, Tunshi y Urbina."),
                             br(),
-                            strong("ANÁLISIS EXPLORATORIO DE DATOS (AED)"),
-                            p("En la parte izquierda muestra un panel para filtrar los datos para cada una de las 7 variables de estudio y también para cada una de 
-                              las estaciones. Según la variable y tiempo filtrado las gráficas se actualizan permitiendo analizar cualquier intervalo de tiempo requerido 
-                              por el usuario. Esta sección puede realizar gráficos de: líneas para series, histogramas, boxplots y cálculo de algunos estadísticos principales 
-                              que permiten describir la información de manera general, además de poder realizar una descarga de los datos de interés."),
+                            strong("ANALISIS EXPLORATORIO DE DATOS (AED)"),
+                            p("En la parte izquierda muestra un panel para filtrar los datos para cada una de las 7 variables de estudio y tambien para cada una de 
+                              las estaciones. Según la variable y tiempo filtrado las graficas se actualizan permitiendo analizar cualquier intervalo de tiempo requerido 
+                              por el usuario. Esta seccion puede realizar graficos de: lineas para series, histogramas, boxplots y calculo de algunos estadisticos principales 
+                              que permiten describir la informacion de manera general, ademas de poder realizar una descarga de los datos de interes."),
                             br(),
                             #p("A new p() command starts a new paragraph.", style = "font-family: 'times'; font-si16pt"),
-                            strong("ANÁLISIS EXPLORATORIO DE DATOS ESPACIALES (AEDE)"),
+                            strong("ANALISIS EXPLORATORIO DE DATOS ESPACIALES (AEDE)"),
                             #em("em() creates italicized (i.e, emphasized) text."),
-                            p("De igual forma, esta cuenta con un panel izquierdo para filtrar los datos de cada variable. Así mismo en el panel central se visualiza los 
-                              resultados espaciales de los datos filtrados. El valor de cada estación es el promedio de los datos en el intervalo de tiempo filtrado por 
-                              el usuario. Adicionalmente se cuenta con las coordenadas geográficas de cada estación."),
-                            p("Aquí no existe el filtro por estación ya que en AEDE trabaja con todas las estaciones a la vez. Como se cuenta con información de pocos 
-                              puntos espaciales(estaciones) se ha añadido 3 técnicas de interpolación para aproximar posibles valores en los lugares donde no se han 
-                              registrado mediciones. Los 3 métodos de interpolación son: Thiessen, Inverse Distance Weight y Ordinary Kriging."),
+                            p("De igual forma, esta cuenta con un panel izquierdo para filtrar los datos de cada variable. Asi mismo en el panel central se visualiza los 
+                              resultados espaciales de los datos filtrados. El valor de cada estacion es el promedio de los datos en el intervalo de tiempo filtrado por 
+                              el usuario. Adicionalmente se cuenta con las coordenadas geograficas de cada estacion."),
+                            p("Aqui no existe el filtro por estacion ya que en AEDE trabaja con todas las estaciones a la vez. Como se cuenta con informacion de pocos 
+                              puntos espaciales(estaciones) se ha añadido 3 tecnicas de interpolacion para aproximar posibles valores en los lugares donde no se han 
+                              registrado mediciones. Los 3 metodos de interpolacion son: Thiessen, Inverse Distance Weight y Ordinary Kriging."),
                             br(),
                             #strong("NOTA:"),
                             #("Hasta el momento las faltas ortograficas con tilde o ~n son inevitables en el entorno Shiny, debido a que genera errores cuando se usan.
