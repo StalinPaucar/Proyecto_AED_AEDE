@@ -22,6 +22,7 @@ library(Metrics)
 library(nortest)
 library(rgdal)
 library(gstat)
+library(rgeos)
 
 #library(gridExtra)
 #library(RColorBrewer)#para ver colores disponibles: display.brewer.all()

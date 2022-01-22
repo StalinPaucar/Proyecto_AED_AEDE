@@ -6,4 +6,4 @@ helpers.installPackages("shiny","shinyWidgets", "shinythemes", "shinycssloaders"
                         "openxlsx", "lubridate", "tidyverse", "openair", "stringi",
                         "modeest", "moments", "hms", "ggplot2", "ggseas", 
                         "viridis", "shadowtext","plotly","ggpubr","Metrics", 
-                        "nortest", "rgdal","gstat")
+                        "nortest", "rgdal","gstat","rgeos")
