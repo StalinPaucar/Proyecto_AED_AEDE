@@ -258,20 +258,9 @@ proj4string(sptdf) <- utm
 #sptdf$Y <- pcd[,"Y"]
 
 #||||||||||||||||||||||||||cargar mapas base de las provincia Ecuador|||||||||||||||||||||
-#provincias<-readOGR("data/Mapas Provincias Ecuador SHP","nxprovincias")
-#cantones<-readOGR("data/Mapas Provincias Ecuador SHP","nxcantones")
+
 parroquias<-readOGR("data/Mapas Provincias Ecuador SHP","nxparroquias") 
 
 # Filtrar dtos de los mapas para la provincia Chimborazo
-#prov_chimb <- subset(provincias, DPA_DESPRO=='CHIMBORAZO')
-#cant_chimb <- subset(cantones, DPA_DESPRO=='CHIMBORAZO')
-parro_chimb <- subset(parroquias, DPA_DESPRO=='CHIMBORAZO')
 
-#complemeto adicional para graficar en ggplot debido a que en el server shinyappsio
-#no funciona las funciones tidy ni fortify por lo que es necesario tener el
-#mapa de Chimborazo filtrado como dataframe en un documento aparte
-#spdf_fortified <- read.xlsx(xlsxFile = "data/polygon_ch_fil.xlsx",
-#                   sheet = 1, detectDates = TRUE)
-#Actualizado para shiny server de Centos 7 no restringe la capacidad de memoria para calcular
-#dataframes extensos ni almacenamiento limitado por lo que este archivo ya se calcula usando
-#la funcion reactivo map_base en la seccion server.R
+parro_chimb <- subset(parroquias, DPA_DESPRO=='CHIMBORAZO')
