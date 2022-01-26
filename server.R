@@ -1270,7 +1270,9 @@ shinyServer(function(input, output) {
         VE3 <- (1-var(cv.ok$residual, na.rm=T)/var(sptdf$varprom))*100
         VET <- c(VE1,VE2,VE3)
         #tabla
-        tbl <- data.frame(Metodo=met,Cor.Obs_Pred=ct,Cor.Pred_Res=ct2,Media_Res=mt,Var_Res=vart,Desv_Res=det,MSPE=MSPET,MAE=MAET,MSE=MSET,RMSE=RMSET,Var.Expl=VET)
+        #tbl <- data.frame(Metodo=met,Cor.Obs_Pred=ct,Cor.Pred_Res=ct2,Media_Res=mt,Var_Res=vart,Desv_Res=det,MSPE=MSPET,MAE=MAET,MSE=MSET,RMSE=RMSET,Var.Expl=VET)
+        tbl <- data.frame(Metodo=met,Cor.Obs_Pred=ct,Cor.Pred_Res=ct2,Media_Res=mt,Var_Res=vart,Desv_Res=det,MSPE=MSPET,MAE=MAET,MSE=MSET,RMSE=RMSET)
+        
         tbl
     })
     output$table4 <- renderTable({

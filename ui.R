@@ -187,7 +187,7 @@ shinyUI(fluidPage(navbarPage(title =div(tags$a(img(src="Logo.png", height=40,wid
                                     tabPanel("BoxPlot ", 
                                              withSpinner(plotOutput("SpaBoxPlot"))
                                              ),
-                                    tabPanel("V. Cruzada", 
+                                    tabPanel("Eval.Pron", 
                                              br(),
                                              downloadButton("downloadtable3", "Descargar"),
                                              br(),
