@@ -207,33 +207,36 @@ shinyUI(fluidPage(navbarPage(title =div(tags$a(img(src="Logo.png", height=40,wid
                    ),
                    tabPanel("INFORMACION",icon = icon("info-circle"),
                             #<div style="text-align: justify">
-                            p("Los datos de cada variable usados en esta aplicacion corresponden a series de tiempo promediadas por hora."),
-                            p("Se cuenta con informacion registrada desde 01/01/2014 hasta 01/01/2019."),
-                            p("A la base de datos se le ha aplicado previamente tecnicas de relleno de datos faltantes usando el paquete R climatol."),
+                            p("Los datos de cada variable usados en esta aplicación corresponden a series de tiempo promediadas por hora."),
+                            p("Se cuenta con información registrada desde 01/01/2014 hasta 01/01/2019."),
+                            p("A la base de datos se le ha aplicado previamente técnicas de relleno de datos faltantes usando el paquete R climatol."),
                             strong("Variables"),
-                            p("Se cuenta con datos de 7 variables meteorologicas: Temperatura Ambiental, Humedad Relativa, Radiacion Solar Difusa, 
-                              Radiacion Solar Global, Temperatura de Suelo a nivel 1, Direccion del Viento y Velocidad del viento."),
+                            p("Se cuenta con datos de 7 variables meteorológicas: Temperatura Ambiental, Humedad Relativa, Radiación Solar Difusa, 
+                              Radiación Solar Global, Temperatura de Suelo a nivel 1, Dirección del Viento y Velocidad del viento."),
                             strong("Estaciones"),
-                            p("Los datos registrados son de 11 estaciones meteorologicas ubicadas en la provincia de Chimborazo que miden todas 
-                              las variables anteriores en cada estacion. 
-                              Las estaciones son: Alao, Atillo, Cumanda, Espoch, Matus, Multitud, Quimiag, San Juan, Tixan, Tunshi y Urbina."),
+                            p("Los datos registrados son de 11 estaciones meteorológicas ubicadas en la provincia de Chimborazo que miden todas 
+                              las variables anteriores en cada estación. 
+                              Las estaciones son: Alao, Atillo, Cumandá, Espoch, Matus, Multitud, Quimiag, San Juan, Tixán, Tunshi y Urbina."),
                             br(),
-                            strong("ANALISIS EXPLORATORIO DE DATOS (AED)"),
-                            p("En la parte izquierda muestra un panel para filtrar los datos para cada una de las 7 variables de estudio y tambien para cada una de 
-                              las estaciones. Según la variable y tiempo filtrado las graficas se actualizan permitiendo analizar cualquier intervalo de tiempo requerido 
-                              por el usuario. Esta seccion puede realizar graficos de: lineas para series, histogramas, boxplots y calculo de algunos estadisticos principales 
-                              que permiten describir la informacion de manera general, ademas de poder realizar una descarga de los datos de interes."),
+                            strong("ANÄLISIS EXPLORATORIO DE DATOS (AED)"),
+                            p("En la parte izquierda muestra un panel para filtrar los datos para cada una de las 7 variables de estudio y también para cada una de 
+                              las estaciones. Según la variable y tiempo filtrado las gráficas se actualizan permitiendo analizar cualquier intervalo de tiempo requerido 
+                              por el usuario. Esta sección puede realizar gráficos de: líneas para series, histogramas, boxplots y cálculo de algunos estadísticos principales 
+                              que permiten describir la información de manera general, además de poder realizar una descarga de los datos de interés."),
                             br(),
                             #p("A new p() command starts a new paragraph.", style = "font-family: 'times'; font-si16pt"),
-                            strong("ANALISIS EXPLORATORIO DE DATOS ESPACIALES (AEDE)"),
+                            strong("ANÁLISIS EXPLORATORIO DE DATOS ESPACIALES (AEDE)"),
                             #em("em() creates italicized (i.e, emphasized) text."),
-                            p("De igual forma, esta cuenta con un panel izquierdo para filtrar los datos de cada variable. Asi mismo en el panel central se visualiza los 
-                              resultados espaciales de los datos filtrados. El valor de cada estacion es el promedio de los datos en el intervalo de tiempo filtrado por 
-                              el usuario. Adicionalmente se cuenta con las coordenadas geograficas de cada estacion."),
-                            p("Aqui no existe el filtro por estacion ya que en AEDE trabaja con todas las estaciones a la vez. Como se cuenta con informacion de pocos 
-                              puntos espaciales(estaciones) se ha añadido 3 tecnicas de interpolacion para aproximar posibles valores en los lugares donde no se han 
-                              registrado mediciones. Los 3 metodos de interpolacion son: Thiessen, Inverse Distance Weight y Ordinary Kriging."),
+                            p("El valor representado en cada estación es el promedio de los datos en el intervalo de tiempo filtrado."),
+                            p("En el AEDE se trabaja con todas las estaciones a la vez. Como se cuenta con informacion de pocos 
+                              puntos espaciales(estaciones) se ha añadido 3 tecnicas de interpolación para aproximar posibles valores en los lugares donde no se han 
+                              registrado mediciones. Los 3 métodos de interpolación son: Thiessen, Inverse Distance Weight y Ordinary Kriging."),
                             br(),
+                            strong("Referencias"),
+                            p("[1] Berndt, C., & Haberlandt, U. (2018). Spatial interpolation of climate variables in Northern Germany-Influence of temporal resolution and network density. Journal of Hydrology: Regional Studies, 15, 184-202. https://doi.org/10.1016/j.ejrh.2018.02.002"),
+                            p("[2] García, F. F. (2012). Meteorología y climatología. Aspectos generales. índice: Revista de Estadística y Sociedad, 50, 6-9."),
+                            p("[3] Hengl, T. (2007). A practical guide to geostatistical mapping of environmental variables. Publications Office. https://publications.jrc.ec.europa.eu/repository/handle/JRC38153"),
+                            p("[4] Vandeput, N. (2021, julio 30). Forecast KPI: RMSE, MAE, MAPE & Bias. Medium.https://towardsdatascience.com/forecast-kpi-rmse-mae-mape-bias-cdc5703d242d"),
                             #strong("NOTA:"),
                             #("Hasta el momento las faltas ortograficas con tilde o ~n son inevitables en el entorno Shiny, debido a que genera errores cuando se usan.
                             #   Pedimos disculpas por este inconveniente, seguimos trabajando para mejorar este aspecto"),
