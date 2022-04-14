@@ -163,6 +163,7 @@ shinyUI(fluidPage(navbarPage(title =div(tags$a(img(src="Logo.png", height=40,wid
                                     #         plotOutput("acf"),
                                     #         verbatimTextOutput("ljungbox")),
                                     tabPanel("QQ Plot",
+                                             checkboxInput("act_log", label = "Log Transf.", value = FALSE),
                                              withSpinner(plotOutput("normqqplot")),
                                              verbatimTextOutput("shapiro")),
                                     #tabPanel("semi-Var-control", plotOutput("semivar")),

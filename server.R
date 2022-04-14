@@ -612,8 +612,8 @@ shinyServer(function(input, output) {
       #no funciona con fortify ni con tidy para la pagina de shinyapssio
       spdf_fortified <- fortify(parro_chimb, region = "DPA_DESPAR")
       #unir la tibble anterior con una base de datos con valores o mediciones de la variable
-      spdf_fortified = spdf_fortified %>%
-        left_join(. , sptdf@data, by=c("id"="PARROQUIA"))
+      #spdf_fortified = spdf_fortified %>%
+       # left_join(. , sptdf@data, by=c("id"="PARROQUIA"))
       spdf_fortified <- left_join(spdf_fortified, sptdf@data,
                                   by=c("id"="PARROQUIA"))
       #gg <- spdf_fortified #actualizado no es necesario la base polygon_ch_fil.xlsx
@@ -650,8 +650,8 @@ shinyServer(function(input, output) {
         mutate( name=factor(ESTACION, unique(ESTACION))) %>%
         #mutate( mytext=paste(ESTACION, "\n",varprom, sep="")
         mutate( mytext=paste(ESTACION, "\n",sep="")
-                        
         )
+
     })
     
     un_med <- reactive({
@@ -813,6 +813,7 @@ shinyServer(function(input, output) {
       #p <- ggplotly(p, tooltip="text")
       #p
     })
+
     
    
      output$normqqplot <- renderPlot({
@@ -820,6 +821,10 @@ shinyServer(function(input, output) {
      
       dt <- est_base()
       dbbp <- point_names()
+      if (input$act_log==TRUE) {
+        #ED$Mean <- log1p(ED$Mean)
+        dbbp$varprom <- log1p(dbbp$varprom)
+      }
       name <- input$var_sel2
       ggqqplot(dbbp, x = "varprom", 
                ggtheme = theme_pubclean(),title = paste0("Q-Q Plot\n",name))+
@@ -860,6 +865,11 @@ shinyServer(function(input, output) {
        #prueba de normalidad shapiro
        
        dbbp <- point_names()
+       if (input$act_log==TRUE) {
+         #ED$Mean <- log1p(ED$Mean)
+         dbbp$varprom <- log1p(dbbp$varprom)
+       }
+       dbbp
        name <- input$var_sel2
        t1 <- shapiro.test(dbbp$varprom)
        t2 <- jarque.test(dbbp$varprom)
